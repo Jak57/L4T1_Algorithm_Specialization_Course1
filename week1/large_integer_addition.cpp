@@ -7,13 +7,30 @@ string large_int_add(string x, string y)
     Adds large integers of equal length.
     */
 
-    int n, m, i, j, carry = 0, rem, digit1, digit2, total;
+    int n, m, i, j, carry = 0, rem, digit1, digit2, total, mx;
     vector<int> v;
     string sum = "";
     char ch;
 
     n = x.size();
-    for (i = n-1; i >= 0; i--) {
+    m = y.size();
+    mx = max(n, m);
+
+    reverse(x.begin(), x.end());
+    reverse(y.begin(), y.end());
+
+    while (x.size() != mx)
+        x += '0';
+
+    while (y.size() != mx)
+        y += '0';
+
+    reverse(x.begin(), x.end());
+    reverse(y.begin(), y.end());
+
+    cout<< x << " " << y << "\n";
+
+    for (i = mx-1; i >= 0; i--) {
 
         digit1 = x[i] - '0';
         digit2 = y[i] - '0';
@@ -31,7 +48,7 @@ string large_int_add(string x, string y)
 
 int main()
 {
-    string x = "123456";
+    string x = "456";
     string y = "123456";
     string sum;
 
@@ -46,5 +63,5 @@ int main()
 Output:
 ------
 
-246912
+23912
 */
