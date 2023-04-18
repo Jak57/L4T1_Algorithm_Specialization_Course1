@@ -28,8 +28,6 @@ string large_int_add(string x, string y)
     reverse(x.begin(), x.end());
     reverse(y.begin(), y.end());
 
-    cout<< x << " " << y << "\n";
-
     for (i = mx-1; i >= 0; i--) {
 
         digit1 = x[i] - '0';
