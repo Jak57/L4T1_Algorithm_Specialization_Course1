@@ -6,16 +6,25 @@ string large_int_sub(string x, string y)
     /**
     Subtracts two large integers of equal length.
     */
-    int n, m, i, j, borrow, diff, digit1, digit2;
+    int n, m, i, j, borrow, diff, digit1, digit2, mx;
     n = x.size();
+    m = y.size();
     string ans = "";
     char ch;
+
+    mx = max(n, m);
 
     reverse(x.begin(), x.end());
     reverse(y.begin(), y.end());
 
+    while (x.size() != mx)
+        x += '0';
+
+    while (y.size() != mx)
+        y += '0';
+
     borrow = 0;
-    for (i = 0; i < n; i++) {
+    for (i = 0; i < mx; i++) {
         digit1 = x[i] - '0';
         digit2 = y[i] - '0';
 
@@ -38,7 +47,7 @@ string large_int_sub(string x, string y)
 int main()
 {
     string x = "654321";
-    string y = "123456";
+    string y = "123";
     string sub;
 
     sub = large_int_sub(x, y);
